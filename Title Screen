@@ -1,0 +1,21 @@
+#### Title Screen###
+def title_screen_options():
+    #This loop allows players to input an option in the title screen, and also allows users to type in either upper or lower case
+    while True:
+        option = input("> ")
+        if option.lower() == ("play"):
+            break
+        elif option.lower() == ("quit"):
+            sys.exit()
+            break
+        elif option.lower() == ("how to Play"):
+
+          instructions()
+        elif option.lower() not in [
+                "play", "quit"
+        ]:  #This stops players from inputing invalid options
+            print("Invalid option, please type either: 'play', 'how to play' or 'quit'")
+
+input('''
+ what Would you like to do? Play,or Quit
+Please input below \n >''')
