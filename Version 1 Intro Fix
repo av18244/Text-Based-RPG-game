@@ -1,0 +1,124 @@
+import textwrap
+import threading
+import sys
+import os
+import time
+import random
+screen_width = 100
+
+######################
+#### CREDIT TITLE ####
+######################
+
+def setup_game():
+    #Clears the previous code
+    # os.system('clear')
+    #Asking for player's name
+    input('' "\nHey, What is your name?\n\n > " '')
+    ##Comment on Name##
+    print('' "Oh, yes...\nNice Name, I wonder what it means\n\n")
+    #Progress into the game Instructions#
+    input("Continue....press enter")
+    # os.system ('clear')
+
+def rolling_title():
+    rolltitle = "/ Ayush & Co /\n"
+    #Text Flow#
+    for character in rolltitle:
+        sys.stdout.write(character)
+        #Text doesn't buffer#
+        sys.stdout.flush()
+        time.sleep(0.05)
+    #Short pause before next description flow##
+    time.sleep(2)
+    #Clears the code to begin the intro##
+    os.system('clear')
+
+    credit = "Few of the ideas in this game are inspired by Bryan Tong's game, CUBE\n"
+    
+    for character in credit:
+        sys.stdout.write(character)
+        sys.stdout.flush()
+        time.sleep(0.05)
+    time.sleep(2)
+
+    setup_game()
+
+rolling_title()
+#User Input to Decide Wheter to Play or Quit#
+gameoptions = input("What Would you like to do Play or Quit\n Please input below \n >")
+
+
+def thequiz():
+  os.system("clear")
+  ###Questionnaire##
+  print(" Q1 -How much of the world's plastic is recycled to cut down on pollution?\n a - 70% b - 9% c - 20% ")
+  answer = input().lower()
+
+  if answer == "a":
+      print(" Nope - This is far from true:( \n\n")
+  time.sleep(3)
+  thequiz()    
+  if answer=="c":
+    print("incorrect..don't you think 20% is less\n your score is 0/10")
+  
+    time.sleep(3)
+    thequiz()
+  elif answer == "b":
+      print(" Correct!! :)\n You now have a score of 1/10 \n\n")
+      question2input = input("Q2 -What percentage of land area should remain covered by forest to maintain Ecological balance \n a - 10%\n b - 5%\n c - 33%")
+      if question2input == "a":
+        print(" Nope Sorry...10% of land area is not even the size of Russia \n\n")
+      elif question2input == "b":
+        print("Unlucky...It's Wrong.... 5% is obviously way too off, there's nothing I can say ):\n\n")
+      elif question2input == "c":
+        print("Correct Again!!!!\n 2/10  \n\n")
+        question3input = input("Q3- True or False: Glass bottles can be recycled an unlimited number of times. -\n a - true\n b - false\n\n ")
+      if question3input == "a":
+       print( "Correct\nGlass is 100% recyclable and can be recycled endlessly without loss in quality or purity, according to the Glass Packaging Institute.\n Your score is now 3/10")
+   
+      elif question3input == "b":
+        print( "You are wrong" )
+  
+      else:
+          print(" You didn't choose a, b or c :( ")
+
+  answer = input().lower()
+
+
+def instructions():
+  os.system('clear')
+
+  flowing_instructions = "You will be asked questions about the environment in general throughout the game, in a typical quiz format. If you answer incorrectly, it will affect your score \n\nAlso please note that outside knowledge will be needed to play this game. Hope everything is now been clarified for you. GOOD LUCK :)\nThe game will begin in 10 seconds!"
+
+  
+
+  for character in flowing_instructions:
+        sys.stdout.write(character)
+        #Text doesn't buffer#
+        sys.stdout.flush()
+        time.sleep(0.05)
+  time.sleep(10)        
+  thequiz();
+
+def startgame():
+  if gameoptions == "Quit":
+    print("Thanks For Visiting")
+  elif gameoptions == "Play" or "play":
+    instructions();
+  else:
+    print("invalid command")
+    gameoptions1=input(">")
+    if gameoptions1=="Play":
+      instructions();
+    else:
+      print("Thank you for playing!")
+  
+
+startgame();
+
+
+
+ 
+# if gameoptions == "Play" or "play":
+#   instructions();
